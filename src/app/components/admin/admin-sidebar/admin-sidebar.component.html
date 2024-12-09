@@ -1,0 +1,25 @@
+<nav>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar bg-primary text-light">
+          <h3 class="p-3 text-left">Hello {{name}}</h3>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a [routerLink]="['executive-list']" class="nav-link text-light">All Executives</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['onboard-executive']" class="nav-link text-light">Onboard Executive</a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['stats']" class="nav-link text-light">Stats</a>
+            </li>
+          </ul>
+          <div class="button ">
+            <button class="text-light text-start" (click)="logout()">Logout</button>
+          </div>
+          <div class="text-center mt-3">
+            <img src="/assets/logo.png" alt="Hospital Logo" class="sidebar-logo">
+          </div>
+        </div>
+    </div>
+</nav>

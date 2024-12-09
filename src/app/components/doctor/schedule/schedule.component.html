@@ -1,0 +1,52 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Set Schedule</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{successMsg}}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <!-- Registration form -->
+      <form [formGroup]="doctorScheduleForm" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Date</span>
+            <input type="date" placeholder="Select Date" formControlName="date" (keyup)="resetMsg()">
+            <span *ngIf="doctorScheduleForm.controls['date'].touched && doctorScheduleForm.controls['date'].invalid"> 
+              <span *ngIf="doctorScheduleForm.controls['date'].errors?.['date']">
+                  <small>Date is mandatory</small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Time Slot</span>
+            
+            <select formControlName="timeSlot">
+                <option>Select Time Slot</option>
+              <option *ngFor="let t of timeSlot" id="{{t}}" >
+                {{t}}
+            </option>
+            </select>
+          </div>
+          <div class="input-box">
+            <span class="details">Total Slots</span>
+            <input type="text" placeholder="Enter total slots" formControlName="totalSlots"(keyup)="resetMsg()">
+            <span *ngIf="doctorScheduleForm.controls['totalSlots'].touched && doctorScheduleForm.controls['totalSlots'].invalid"> 
+                <span *ngIf="doctorScheduleForm.controls['totalSlots'].errors?.['required']">
+                  <small>Experience is mandatory</small>
+                </span>
+                <span  *ngIf="doctorScheduleForm.get('totalSlots')?.hasError('pattern')">
+                  <small>Total slots should be a number</small>
+                </span>
+              </span>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="doctorScheduleForm.invalid" >Set Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>

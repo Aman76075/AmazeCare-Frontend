@@ -1,0 +1,21 @@
+.card-header {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /* Gradient for header */
+    color: white; /* Text color for header */
+    font-weight: bold; /* Emphasize header */
+    text-align: center; /* Center the header text */
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /* Gradient for button */
+    border: none; /* Remove border */
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #9b59b6, #71b7e6); /* Reverse gradient on hover */
+    transform: scale(1.02); /* Subtle scaling effect on hover */
+  }
+  .card {
+    max-width: 100%; /* Ensure responsiveness */
+    width: 100%; /* Fill the column defined in HTML */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }

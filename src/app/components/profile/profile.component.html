@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Profile Update</div>
+    <div class="content">
+      <!-- Success and error messages -->
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{successMsg}}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <!-- Profile update form -->
+      <form [formGroup]="profileForm" (ngSubmit)="onProfileSubmit()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" [value]="userData.name" disabled>
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            <input type="text" [value]="userData.department" disabled>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Update email" formControlName="email" (keyup)="resetMsg()">
+            <span *ngIf="profileForm.controls['email'].touched && profileForm.controls['email'].invalid"> 
+              <span *ngIf="profileForm.controls['email'].errors?.['required']">
+                <small>Email is mandatory</small>
+              </span>
+              <span *ngIf="profileForm.get('email')?.hasError('email')">
+                <small>Enter a valid email</small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Contact</span>
+            <input type="text" placeholder="Update contact" formControlName="contact" (keyup)="resetMsg()">
+            <span *ngIf="profileForm.controls['contact'].touched && profileForm.controls['contact'].invalid">
+              <span *ngIf="profileForm.controls['contact'].errors?.['required']">
+                <small>Contact is mandatory</small>
+              </span>
+              <span *ngIf="profileForm.get('contact')?.hasError('minlength') || profileForm.get('contact')?.hasError('maxlength')">
+                <small>Contact must be 10 digits</small>
+              </span>
+            </span>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="profileForm.invalid">Update Details</button>
+        </div>
+      </form>
+  </div>
+  

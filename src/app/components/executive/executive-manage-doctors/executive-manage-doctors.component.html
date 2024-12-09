@@ -1,0 +1,115 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Doctor Onboard</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{successMsg}}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <!-- Registration form -->
+      <form [formGroup]="doctorOnboard" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter full name" formControlName="name" (keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['name'].touched && doctorOnboard.controls['name'].invalid"> 
+              <span *ngIf="doctorOnboard.controls['name'].errors?.['required']">
+                  <small>Name is mandatory</small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter email" formControlName="email"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['email'].touched && doctorOnboard.controls['email'].invalid"> 
+              <span *ngIf="doctorOnboard.controls['email'].errors?.['required']">
+                  <small>Email is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.get('email')?.hasError('email')">
+                <small>Enter correct email</small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Contact</span>
+            <input type="text" placeholder="Enter contact" formControlName="contact"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['contact'].touched && doctorOnboard.controls['contact'].invalid"> 
+              <span  *ngIf="doctorOnboard.controls['contact'].errors?.['required']">
+                 <small>contact is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.get('contact')?.hasError('minlength') || doctorOnboard.get('contact')?.hasError('maxlength')">
+                <small>Please provide a 10 digit contact without country code(+91). </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter username" formControlName="username"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['username'].touched && doctorOnboard.controls['username'].invalid"> 
+              <span *ngIf="doctorOnboard.controls['username'].errors?.['required']">
+                <small>Username is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.get('username')?.hasError('minlength')">
+                <small>Username should be minimum of size 4</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details">Experience</span>
+            <input type="number" placeholder="Enter experience (in years)" formControlName="experience"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['experience'].touched && doctorOnboard.controls['experience'].invalid"> 
+              <span *ngIf="doctorOnboard.controls['experience'].errors?.['required']">
+                <small>Experience is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.get('experience')?.hasError('pattern')">
+                <small>Experience should be a number</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter password" formControlName="password"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['password'].touched && doctorOnboard.controls['password'].invalid">
+              <span *ngIf="doctorOnboard.controls['password'].errors?.['required']">
+                <small>password is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.controls['password'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            
+            <select formControlName="department">
+              <option *ngFor="let d of departments" id="{{d}}" >
+                {{d}}
+            </option>
+            </select>
+          </div>
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm password" formControlName="rePassword"(keyup)="resetMsg()">
+            <span *ngIf="doctorOnboard.controls['rePassword'].touched && doctorOnboard.controls['rePassword'].invalid">
+              <span *ngIf="doctorOnboard.controls['rePassword'].errors?.['required']">
+                <small>Re-Password is mandatory</small>
+              </span>
+              <span  *ngIf="doctorOnboard.controls['rePassword'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="doctorOnboard.invalid" >Add Doctor</button>
+        </div>
+      </form>
+    </div>
+  </div>

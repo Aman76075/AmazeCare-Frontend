@@ -1,0 +1,120 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Page Layout */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+  max-width: 950px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  color: #fff;
+  text-align: left;
+}
+
+.table thead th {
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.table tbody td {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Action Buttons */
+.table tbody td button {
+  height: 35px;
+  padding: 0 15px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.table tbody td button.btn-info {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.table tbody td button.btn-warning {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+}
+
+.table tbody td button.btn-success {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.table tbody td button:hover {
+  opacity: 0.9;
+}
+.wider-column {
+    width: 30%; /* Adjust this as needed */
+  }
+  
+  .table td {
+    vertical-align: middle; /* Center content vertically for better alignment */
+  }
+  
+  .table td small {
+    color: #666; /* Subtle color for additional patient info */
+  }
+  

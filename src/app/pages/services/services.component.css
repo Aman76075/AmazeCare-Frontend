@@ -1,0 +1,26 @@
+.services-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white; /* White text */
+    padding: 20px; /* Padding for better spacing */
+    border-radius: 10px; /* Rounded edges for aesthetic */
+    display: inline-block; /* Ensure the background wraps the text */
+  }
+  
+  .specialty-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .specialty-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  .container {
+    padding-top: 50px; /* Adjust this value based on your navbar height */
+  }
+  

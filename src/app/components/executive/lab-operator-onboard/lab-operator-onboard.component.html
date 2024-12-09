@@ -1,0 +1,122 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Lab Operator Onboard</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{successMsg}}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <!-- Registration form -->
+      <form [formGroup]="labOperatorOnboard" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <!-- Input for Full Name -->
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter full name" formControlName="name" (keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['name'].touched && labOperatorOnboard.controls['name'].invalid"> 
+              <span *ngIf="labOperatorOnboard.controls['name'].errors?.['required']">
+                  <small>Name is mandatory</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter email" formControlName="email"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['email'].touched && labOperatorOnboard.controls['email'].invalid"> 
+              <span *ngIf="labOperatorOnboard.controls['email'].errors?.['required']">
+                  <small>Email is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.get('email')?.hasError('email')">
+                <small>Enter correct email</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Contact</span>
+            <input type="text" placeholder="Enter contact" formControlName="contact"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['contact'].touched && labOperatorOnboard.controls['contact'].invalid"> 
+              <span  *ngIf="labOperatorOnboard.controls['contact'].errors?.['required']">
+                 <small>contact is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.get('contact')?.hasError('minlength') || labOperatorOnboard.get('contact')?.hasError('maxlength')">
+                <small>Please provide a 10 digit contact without country code(+91). </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter username" formControlName="username"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['username'].touched && labOperatorOnboard.controls['username'].invalid"> 
+              <span *ngIf="labOperatorOnboard.controls['username'].errors?.['required']">
+                <small>Username is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.get('username')?.hasError('minlength')">
+                <small>Username should be minimum of size 4</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details">Experience</span>
+            <input type="number" placeholder="Enter experience (in years)" formControlName="experience"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['experience'].touched && labOperatorOnboard.controls['experience'].invalid"> 
+              <span *ngIf="labOperatorOnboard.controls['experience'].errors?.['required']">
+                <small>Experience is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.get('experience')?.hasError('pattern')">
+                <small>Experience should be a number</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter password" formControlName="password"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['password'].touched && labOperatorOnboard.controls['password'].invalid">
+              <span *ngIf="labOperatorOnboard.controls['password'].errors?.['required']">
+                <small>password is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.controls['password'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Salary</span>
+            <input type="number" placeholder="Enter Salary" formControlName="salary"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['salary'].touched && labOperatorOnboard.controls['salary'].invalid"> 
+              <span *ngIf="labOperatorOnboard.controls['salary'].errors?.['required']">
+                <small>Salary is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.get('salary')?.hasError('pattern')">
+                <small>Salary should be a number</small>
+              </span>
+            </span>
+          </div>
+          
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm password" formControlName="rePassword"(keyup)="resetMsg()">
+            <span *ngIf="labOperatorOnboard.controls['rePassword'].touched && labOperatorOnboard.controls['rePassword'].invalid">
+              <span *ngIf="labOperatorOnboard.controls['rePassword'].errors?.['required']">
+                <small>Re-Password is mandatory</small>
+              </span>
+              <span  *ngIf="labOperatorOnboard.controls['rePassword'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="labOperatorOnboard.invalid" >Add Lab Operator</button>
+        </div>
+      </form>
+    </div>
+  </div>

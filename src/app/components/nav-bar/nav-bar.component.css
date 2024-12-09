@@ -1,0 +1,22 @@
+.amaze-care {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    font-size: 3rem; /* Bigger font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    color: white; /* White font */
+    text-align: center; /* Center align the text */
+    text-transform: capitalize; /* Makes "AmazeCare" look neat */
+    letter-spacing: 2px; /* Slight spacing between letters for readability */
+  }
+  .sidebar-logo {
+    max-width: 150px; /* Ensure it fits within the sidebar */
+  max-height: 150px; /* Restrict the height to a percentage of the sidebar height */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  margin: auto; /* Center it within the container */
+  display: block; /* Ensure proper layout behavior */
+  }
+  .navbar {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6); /* Gradient background */
+    color: white; /* Text color */
+  }
+  

@@ -1,0 +1,45 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Prescribe Test and Scans</div>
+    <div class="content">
+        <div>
+           <i> Patient Id:{{patientId}}</i>
+        </div>
+        <div class="alert alert-primary mb-4" *ngIf="successMsg">
+            {{successMsg}}
+        </div>
+        <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+            {{errorMsg}}
+        </div>
+
+        <!-- Medical Record Form -->
+        <form [formGroup]="prescribeTestForm" (ngSubmit)="onFormSubmit()">
+            <div class="user-details">
+                <!-- Prescription Field -->
+                <div class="input-box-drop">
+                    <span class="details">Test/Scan Type</span>
+                    
+                    <select formControlName="testScansType">
+                      <option *ngFor="let d of testAndScans" id="{{d}}" >
+                        {{d}}
+                    </option>
+                    </select>
+                  </div>
+
+                <!-- Treatment Plan Field -->
+                <div class="input-box">
+                    <span class="details">Description</span>
+                    <textarea placeholder="Enter the description for the test/scan" formControlName="description" (keyup)="resetMsg()"></textarea>
+                    <span *ngIf="prescribeTestForm.controls['description'].touched && prescribeTestForm.controls['description'].invalid"> 
+                        <small>Description is mandatory</small>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Submit button -->
+            <div class="button">
+                <button type="submit" [disabled]="prescribeTestForm.invalid">Generate Record</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark shadow fixed-top">
+    <div class="container">
+      <div class="text-center mt-3">
+        <img src="/assets/logo.png" alt="Hospital Logo" class="sidebar-logo">
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+            <a [routerLink]="['/']" class="nav-link" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/']" class="nav-link" >About</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/services']" class="nav-link">Specialities</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/']" class="nav-link" >Contact</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-light" (click)="navigateToLogin()">Login</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-sm-5 mb-0 doctor-card-container" *ngFor="let d of doctor">
+<div class="doctor-card">
+    <div class="card-header">
+      <h3 class="doctor-name">Dr. {{d.name}}</h3>
+      <p class="doctor-department">Department: {{d.department}}</p>
+    </div>
+    <div class="card-body">
+      <ul class="doctor-details">
+        <li><strong>Experience:</strong> {{d.experience}} years</li>
+        <li><strong>Date of Joining:</strong> {{d.joiningDate}}</li>
+        <li><strong>Email:</strong>{{d.email}}</li>
+        <li><strong>Contact:</strong>{{d.contact}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+  

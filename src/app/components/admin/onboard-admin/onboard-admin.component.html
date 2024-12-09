@@ -1,0 +1,122 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Executive Onboard</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{successMsg}}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{errorMsg}}
+      </div>
+      <!-- Registration form -->
+      <form [formGroup]="executiveOnboard" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <!-- Input for Full Name -->
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter full name" formControlName="name" (keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['name'].touched && executiveOnboard.controls['name'].invalid"> 
+              <span *ngIf="executiveOnboard.controls['name'].errors?.['required']">
+                  <small>Name is mandatory</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter email" formControlName="email"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['email'].touched && executiveOnboard.controls['email'].invalid"> 
+              <span *ngIf="executiveOnboard.controls['email'].errors?.['required']">
+                  <small>Email is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.get('email')?.hasError('email')">
+                <small>Enter correct email</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Contact</span>
+            <input type="text" placeholder="Enter contact" formControlName="contact"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['contact'].touched && executiveOnboard.controls['contact'].invalid"> 
+              <span  *ngIf="executiveOnboard.controls['contact'].errors?.['required']">
+                 <small>contact is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.get('contact')?.hasError('minlength') || executiveOnboard.get('contact')?.hasError('maxlength')">
+                <small>Please provide a 10 digit contact without country code(+91). </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter username" formControlName="username"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['username'].touched && executiveOnboard.controls['username'].invalid"> 
+              <span *ngIf="executiveOnboard.controls['username'].errors?.['required']">
+                <small>Username is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.get('username')?.hasError('minlength')">
+                <small>Username should be minimum of size 4</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details">Experience</span>
+            <input type="number" placeholder="Enter experience (in years)" formControlName="experience"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['experience'].touched && executiveOnboard.controls['experience'].invalid"> 
+              <span *ngIf="executiveOnboard.controls['experience'].errors?.['required']">
+                <small>Experience is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.get('experience')?.hasError('pattern')">
+                <small>Experience should be a number</small>
+              </span>
+            </span>
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter password" formControlName="password"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['password'].touched && executiveOnboard.controls['password'].invalid">
+              <span *ngIf="executiveOnboard.controls['password'].errors?.['required']">
+                <small>password is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.controls['password'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          <div class="input-box">
+            <span class="details">Salary</span>
+            <input type="number" placeholder="Enter Salary" formControlName="salary"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['salary'].touched && executiveOnboard.controls['salary'].invalid"> 
+              <span *ngIf="executiveOnboard.controls['salary'].errors?.['required']">
+                <small>Salary is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.get('salary')?.hasError('pattern')">
+                <small>Salary should be a number</small>
+              </span>
+            </span>
+          </div>
+          
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="text" placeholder="Confirm password" formControlName="rePassword"(keyup)="resetMsg()">
+            <span *ngIf="executiveOnboard.controls['rePassword'].touched && executiveOnboard.controls['rePassword'].invalid">
+              <span *ngIf="executiveOnboard.controls['rePassword'].errors?.['required']">
+                <small>Re-Password is mandatory</small>
+              </span>
+              <span  *ngIf="executiveOnboard.controls['rePassword'].errors?.['pattern']">
+                <small>Password should have minimum eight characters, at least one uppercase letter, one lowercase letter and one number   </small>
+              </span>
+            </span>
+          </div>
+          
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="executiveOnboard.invalid" >Add Lab Operator</button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,50 @@
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed on the screen */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Scroll if content exceeds screen */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+    
+    /* Sidebar links */
+    .sidebar .nav-link {
+      font-size: 1.1rem;
+      padding: 15px 20px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .sidebar .nav-link:hover {
+      background-color: #495057; /* Highlight on hover */
+      color: #fff; /* Maintain white text */
+    }
+    
+    /* Content area */
+    .content {
+      margin-left: 250px; /* Match the width of the sidebar */
+    }
+    .sidebar-logo {
+    max-width: 90%; /* Ensure it fits within the sidebar */
+    max-height: 30%; /* Restrict the height to a percentage of the sidebar height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    margin: auto; /* Center it within the container */
+    display: block; /* Ensure proper layout behavior */
+    
+    }
+    .button button {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }

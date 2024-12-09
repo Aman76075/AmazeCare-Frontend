@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Styling</title>
+  <style>
+    /* Ensure the text container overlays properly */
+    .text-container {
+      position: absolute; /* Makes the container float over the background */
+      top: 50%; /* Centers vertically */
+      left: 50%; /* Centers horizontally */
+      transform: translate(-50%, -50%); /* Adjusts position from the center */
+      text-align: center; /* Aligns text */
+      color: white; /* White text for visibility */
+    }
+    .line1, .line3 {
+      font-size: 3rem; /* Smaller size for first and third lines */
+      font-weight: 700; /* Bold font */
+    }
+    .line2 {
+      font-size: 5rem; /* Biggest size for AMAZECARE */
+      font-weight: 900; /* Extra bold font */
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay text container -->
+  <div class="text-container">
+    <div class="line1">THIS IS</div>
+    <div class="line2">AMAZECARE</div>
+    <div class="line3">WE'RE GLAD, YOU ASKED</div>
+  </div>
+</body>
+</html>

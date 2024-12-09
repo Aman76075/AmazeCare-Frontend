@@ -1,0 +1,76 @@
+<div class="container mt-4">
+    <h2 class="text-left mb-4">Medical Records</h2>
+    <div>
+        <i> Patient Id:{{patientId}}</i>
+     </div>
+    <table class="table table-striped table-bordered">
+      <thead class="table-primary">
+        <tr>
+          <th>Generated Date</th>
+          <th>Prescription</th>
+          <th>Treatment Plan</th>
+          <th>Doctor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of medicalRecords">
+          <td>{{ record.generationDate}}</td>
+          <td>{{ record.prescription }}</td>
+          <td>{{ record.treatmentPlan }}</td>
+          <td>{{record.doctor.name}} ({{record.doctor.department}})</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <button class="page-link" (click)="prev()"  tabindex="-1" aria-disabled="true">Previous</button>
+              </li>
+              &nbsp;&nbsp;&nbsp;
+              <li class="page-item">
+                <button class="page-link"  (click)="next()">Next</button>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    
+  </div>
+  <div class="container mt-4">
+    <h2 class="text-left mb-4">Report Details</h2>
+    <div>
+        <i> Patient Id: {{ patientId }}</i>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Generated Date</th>
+                <th>Description</th>
+                <th>Scan/Test Type</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let report of reportDetails">
+                <td>{{ report.generatedOn }}</td>
+                <td>{{ report.description }}</td>
+                <td>{{ report.scanTestType }}</td>
+                <td>{{ report.doctorName }} ({{report.department}})</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <button class="page-link" (click)="prevR()" tabindex="-1" aria-disabled="true">Previous</button>
+                </li>
+                &nbsp;&nbsp;&nbsp;
+                <li class="page-item">
+                    <button class="page-link" (click)="nextR()">Next</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+

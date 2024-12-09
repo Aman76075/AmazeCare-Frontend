@@ -1,0 +1,64 @@
+<div class="container">
+    <!-- Title section -->
+    <div class="title">Generate Medical Record</div>
+    <div class="content">
+        <div>
+           <i> Patient Id:{{patientId}}</i>
+        </div>
+        <div class="alert alert-primary mb-4" *ngIf="successMsg">
+            {{successMsg}}
+        </div>
+        <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+            {{errorMsg}}
+        </div>
+        
+        
+        <!-- Display Patient Details 
+         <div class="patient-details">
+            <div class="input-box">
+                <span class="details">Full Name</span>
+                <input type="text" [value]="patient.name" disabled>
+            </div>
+            <div class="input-box">
+                <span class="details">Email</span>
+                <input type="text" [value]="patient.email" disabled>
+            </div>
+            <div class="input-box">
+                <span class="details">Contact</span>
+                <input type="text" [value]="patient.contact" disabled>
+            </div>
+            <div class="input-box">
+                <span class="details">Username</span>
+                <input type="text" [value]="patient.username" disabled>
+            </div>
+        </div>  -->
+
+        <!-- Medical Record Form -->
+        <form [formGroup]="medicalRecordForm" (ngSubmit)="onFormSubmit()">
+            <div class="user-details">
+                <!-- Prescription Field -->
+                <div class="input-box">
+                    <span class="details">Prescription</span>
+                    <textarea placeholder="Enter prescription" formControlName="prescription" (keyup)="resetMsg()"></textarea>
+                    <span *ngIf="medicalRecordForm.controls['prescription'].touched && medicalRecordForm.controls['prescription'].invalid"> 
+                        <small>Prescription is mandatory</small>
+                    </span>
+                </div>
+
+                <!-- Treatment Plan Field -->
+                <div class="input-box">
+                    <span class="details">Treatment Plan</span>
+                    <textarea placeholder="Enter treatment plan" formControlName="treatmentPlan" (keyup)="resetMsg()"></textarea>
+                    <span *ngIf="medicalRecordForm.controls['treatmentPlan'].touched && medicalRecordForm.controls['treatmentPlan'].invalid"> 
+                        <small>Treatment plan is mandatory</small>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Submit button -->
+            <div class="button">
+                <button type="submit" [disabled]="medicalRecordForm.invalid">Generate Record</button>
+            </div>
+        </form>
+    </div>
+</div>
