@@ -50,7 +50,10 @@ resetMsg() {
                 break;
               case 'ADMIN':
                 this.router.navigateByUrl("/admin");
-                break;  
+                break;
+              case 'IN_PATIENT':
+                this.router.navigateByUrl("/in-patient");
+                break;    
               default:
                 this.router.navigateByUrl("/broken-link")
                 break    

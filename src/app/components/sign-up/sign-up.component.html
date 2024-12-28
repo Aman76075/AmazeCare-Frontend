@@ -1,0 +1,105 @@
+<div class="container" style="margin-top:130px;">
+    <!-- Title section -->
+    <div class="title">Patient Signup</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">
+        {{ successMsg }}
+      </div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">
+        {{ errorMsg }}
+      </div>
+      <!-- Signup form -->
+      <form [formGroup]="patientSignupForm" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter full name" formControlName="name" (keyup)="resetMsg()" />
+            <span *ngIf="patientSignupForm.controls['name'].touched && patientSignupForm.controls['name'].invalid">
+              <small *ngIf="patientSignupForm.controls['name'].errors?.['required']">Name is mandatory</small>
+            </span>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Gender</span>
+            <select formControlName="gender">
+              <option value="" disabled selected>Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="number" placeholder="Enter age" formControlName="age" (keyup)="resetMsg()" />
+            <span *ngIf="patientSignupForm.controls['age'].touched && patientSignupForm.controls['age'].invalid">
+              <small *ngIf="patientSignupForm.controls['age'].errors?.['required']">Age is mandatory</small>
+            </span>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter email" formControlName="email" (keyup)="resetMsg()" />
+            <span *ngIf="patientSignupForm.controls['email'].touched && patientSignupForm.controls['email'].invalid">
+              <small *ngIf="patientSignupForm.controls['email'].errors?.['required']">Email is mandatory</small>
+              <small *ngIf="patientSignupForm.controls['email'].errors?.['email']">Enter a valid email</small>
+            </span>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Contact</span>
+            <input type="text" placeholder="Enter contact" formControlName="contact" (keyup)="resetMsg()" />
+            <span *ngIf="patientSignupForm.controls['contact'].touched && patientSignupForm.controls['contact'].invalid">
+              <small *ngIf="patientSignupForm.controls['contact'].errors?.['required']">Contact is mandatory</small>
+            </span>
+            <span  *ngIf="patientSignupForm.get('contact')?.hasError('minlength') || patientSignupForm.get('contact')?.hasError('maxlength')">
+                <small>Please provide a 10 digit contact without country code(+91). </small>
+              </span>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Emergency Contact</span>
+            <input type="text" placeholder="Enter emergency contact" formControlName="emergency_contact" />
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Aadhar</span>
+            <input type="text" placeholder="Enter Aadhar number" formControlName="aadhar" />
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Address</span>
+            <textarea placeholder="Enter address" formControlName="address"></textarea>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Allergies</span>
+            <textarea placeholder="Enter allergies (if any)" formControlName="allergies"></textarea>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter username" formControlName="username" (keyup)="resetMsg()" />
+            <span *ngIf="patientSignupForm.controls['username'].touched && patientSignupForm.controls['username'].invalid">
+              <small *ngIf="patientSignupForm.controls['username'].errors?.['required']">Username is mandatory</small>
+            </span>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter password" formControlName="password" (keyup)="resetMsg()" />
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm password" formControlName="rePassword" (keyup)="resetMsg()" />
+          </div>
+        </div>
+        <!-- Submit button -->
+        <div class="button">
+          <button type="submit" [disabled]="patientSignupForm.invalid">Signup</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

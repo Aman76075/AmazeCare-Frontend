@@ -21,6 +21,9 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AllExecutiveComponent } from './components/admin/all-executive/all-executive.component';
 import { OnboardAdminComponent } from './components/admin/onboard-admin/onboard-admin.component';
 import { StatsComponent } from './components/admin/stats/stats.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { PatientPageComponent } from './pages/patient-page/patient-page.component';
+import { PatientProfileComponent } from './components/patient/patient-profile/patient-profile.component';
 
 export const routes: Routes = [
     {
@@ -35,6 +38,9 @@ export const routes: Routes = [
             {
                 path:'services',component:ServicesComponent
 
+            },
+            {
+                path:'sign-up',component:SignUpComponent
             }
         ]
     },
@@ -78,6 +84,14 @@ export const routes: Routes = [
                 path:'onboard-lab-operator',component:LabOperatorOnboardComponent
             },{
                 path:'executive-profile',component:ProfileExecutiveComponent
+            }
+        ]
+
+    },
+    {
+        path:'in-patient',component:PatientPageComponent,children:[
+            {
+                path:'inpatient-profile',component:PatientProfileComponent
             }
         ]
 
