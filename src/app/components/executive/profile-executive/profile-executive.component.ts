@@ -14,13 +14,16 @@ export class ProfileExecutiveComponent {
   errorMsg: string|undefined
   userData: any=[]
   profileForm: FormGroup
+  role=localStorage.getItem('role')
   constructor(private executiveService:ExecutiveService){
     this.profileForm=new FormGroup({
       email: new FormControl('', [Validators.required,Validators.email]),
       contact: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
     })
+    
   }
   ngOnInit(): void {
+    
     this.executiveService.getExecutiveDetails().subscribe({
       next:data=>{
         this.userData=data;

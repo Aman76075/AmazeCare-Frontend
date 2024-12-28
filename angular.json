@@ -30,8 +30,7 @@
             "styles": [
               "src/styles.css",
               "bootstrap/dist/css/bootstrap.min.css",
-              "bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": []
           },
@@ -92,13 +91,15 @@
             "styles": [
               "src/styles.css",
               "bootstrap/dist/css/bootstrap.min.css",
-              "bootstrap-icons/font/bootstrap-icons.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "bootstrap-icons/font/bootstrap-icons.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
