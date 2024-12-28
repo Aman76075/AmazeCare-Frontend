@@ -17,6 +17,10 @@
             <input type="text" [value]="userData.name" disabled>
           </div>
           <div class="input-box">
+            <span class="details">Role</span>
+            <input type="text" [value]="role" disabled>
+          </div>
+          <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="Update email" formControlName="email" (keyup)="resetMsg()">
             <span *ngIf="profileForm.controls['email'].touched && profileForm.controls['email'].invalid"> 

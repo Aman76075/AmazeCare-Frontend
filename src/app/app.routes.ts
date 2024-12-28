@@ -20,7 +20,8 @@ import { MedicalHistoryComponent } from './components/doctor/medical-history/med
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AllExecutiveComponent } from './components/admin/all-executive/all-executive.component';
 import { OnboardAdminComponent } from './components/admin/onboard-admin/onboard-admin.component';
-import { StatsComponent } from './components/admin/stats/stats.component';
+import { PatientDetailsComponent } from './components/doctor/patient-details/patient-details.component';
+
 
 export const routes: Routes = [
     {
@@ -59,6 +60,9 @@ export const routes: Routes = [
             {
                 path:'doctor-profile',component:ProfileComponent
 
+            },
+            {
+                path:'patient-info',component:PatientDetailsComponent
             }
            
         ]
@@ -88,8 +92,6 @@ export const routes: Routes = [
                 path:'executive-list',component:AllExecutiveComponent
             },{
                 path:'onboard-executive',component:OnboardAdminComponent
-            },{
-                path:'stats',component:StatsComponent
             }
          ]
     },

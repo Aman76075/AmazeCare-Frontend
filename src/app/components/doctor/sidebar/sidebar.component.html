@@ -5,14 +5,18 @@
           <h3 class="p-3 text-left">Hello {{name}}</h3>
           <ul class="nav flex-column">
             <li class="nav-item">
+              <a [routerLink]="['doctor-profile']" class="nav-link text-light">My Profile</a>
+            </li>
+            <li class="nav-item">
               <a [routerLink]="['appointment-list']" class="nav-link text-light"[ngClass]="getClassOn()" (mouseover)="linkClick('appointment')">Appointments</a>
             </li>
             <li class="nav-item">
               <a [routerLink]="['doctor-schedule']" class="nav-link text-light">Schedule</a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['doctor-profile']" class="nav-link text-light">My Profile</a>
+              <a [routerLink]="['patient-info']" class="nav-link text-light">Patient Details</a>
             </li>
+           
           </ul>
           <div class="button">
             <button class="btn w-100 text-light text-start" (click)="logout()">Logout</button>

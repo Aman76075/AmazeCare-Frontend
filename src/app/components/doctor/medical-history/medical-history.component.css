@@ -79,3 +79,32 @@ body {
   color: #333;
   vertical-align: middle;
 }
+/* Pagination Styling */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination .page-item .page-link {
+  display: block;
+  padding: 8px 15px;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pagination .page-item .page-link:hover {
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+  transform: scale(1.1);
+}
+
+.pagination .page-item .page-link[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
