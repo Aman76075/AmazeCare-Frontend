@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="title">Book Appointment</div>
+    <div class="content">
+      <div class="alert alert-primary mb-4" *ngIf="successMsg">{{ successMsg }}</div>
+      <div class="alert alert-danger mb-4" *ngIf="errorMsg">{{ errorMsg }}</div>
+      <form [formGroup]="appointmentForm" (ngSubmit)="onFormSubmit()">
+        <div class="user-details">
+          <!-- Select Department -->
+          <div class="input-box">
+            <span class="details">Select Department</span>
+            <select formControlName="department" (change)="onDepartmentChange()">
+              <option value="" disabled>Select a department</option>
+              <option *ngFor="let d of departments" [value]="d">{{ d }}</option>
+            </select>
+          </div>
+  
+          <!-- Select Doctor -->
+          <div class="input-box">
+            <span class="details">Select Doctor</span>
+            <select formControlName="doctor">
+              <option value="" disabled>Select a doctor</option>
+              <option *ngFor="let doc of doctors" [value]="doc.id">Dr. {{ doc.name }}</option>
+            </select>
+          </div>
+  
+          <!-- Select Date -->
+          <div class="input-box">
+            <span class="details">Select Date</span>
+            <input type="date" formControlName="date" (click)="resetMessages()" />
+          </div>
+        </div>
+        <div class="input-box">
+            <span class="details">Time Slot</span>
+            
+            <select formControlName="timeSlot">
+                <option>Select Time Slot</option>
+              <option *ngFor="let t of timeSlot" id="{{t}}" >
+                {{t}}
+            </option>
+            </select>
+          </div>
+  
+        <!-- Submit Button -->
+        <div class="button">
+          <button type="submit" [disabled]="appointmentForm.invalid">Book Appointment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
